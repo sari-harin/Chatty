@@ -7,8 +7,14 @@ public class InputPage extends JFrame implements ActionListener{
 	JButton jb;
 	
 	public InputPage() {
+		Toolkit tk=getToolkit();
+		Dimension d=tk.getScreenSize();
+		int ScreenHeight=d.height;
+		int ScreenWidth=d.width;
+		
 		setSize(300,100);
 		setTitle("Create room");
+		setLocation(ScreenWidth/2-this.getWidth()/2, ScreenHeight/2-this.getHeight()/2);
 		setResizable(false);
 		setLayout(new BorderLayout());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -38,6 +44,7 @@ public class InputPage extends JFrame implements ActionListener{
 		}
 		} catch(Exception ex) {
 			JOptionPane.showMessageDialog(null, "잘못된 입력값입니다.", "Error",JOptionPane.ERROR_MESSAGE);  //입력값 잘못되었을시 경고창
+			portInput.setText("");
 		}
 		
 	}
